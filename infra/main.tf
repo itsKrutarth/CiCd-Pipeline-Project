@@ -275,6 +275,44 @@ resource "aws_iam_role_policy_attachment" "cicd_project_autoscaling" {
 }
 
 ######################################################################
+# ECR Repository
+######################################################################
+
+resource "aws_ecr_repository" "cicd_project_nginx" {
+  name                 = "cicd-project/nginx"
+  image_tag_mutability = "MUTABLE"   # set to IMMUTABLE if you want tag protection
+
+  image_scanning_configuration {
+    scan_on_push = true   # auto vulnerability scan on every push
+  }
+
+  tags = {
+    Name = "CiCd-Project-ECR-Nginx"
+  }
+}
+
+resource "aws_ecr_lifecycle_policy" "cicd_project_nginx" {
+  repository = aws_ecr_repository.cicd_project_nginx.name
+
+  policy = jsonencode({
+    rules = [
+      {
+        rulePriority = 1
+        description  = "Keep last 10 images, expire older ones"
+        selection = {
+          tagStatus   = "any"
+          countType   = "imageCountMoreThan"
+          countNumber = 10
+        }
+        action = {
+          type = "expire"
+        }
+      }
+    ]
+  })
+}
+
+######################################################################
 # CloudWatch Log Group
 ######################################################################
 
@@ -330,7 +368,7 @@ resource "aws_ecs_task_definition" "cicd_project_nginx" {
   container_definitions = jsonencode([
     {
       name      = "CiCd-Project-Nginx-Container"
-      image     = "nginx:latest"
+      image     = "${aws_ecr_repository.cicd_project_nginx.repository_url}:latest"
       essential = true
 
       portMappings = [
@@ -532,4 +570,14 @@ output "ecs_cluster_name" {
 output "ecs_service_name" {
   description = "ECS Service name"
   value       = aws_ecs_service.cicd_project_nginx.name
+}
+
+output "ecr_repository_url" {
+  description = "ECR repository URL – use this as your docker push/pull target"
+  value       = aws_ecr_repository.cicd_project_nginx.repository_url
+}
+
+output "ecr_repository_name" {
+  description = "ECR repository name"
+  value       = aws_ecr_repository.cicd_project_nginx.name
 }

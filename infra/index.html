@@ -1,0 +1,1201 @@
+<!-- testing code -->
+ ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Krutarth Patel | Systems Engineer</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Krutarth Patel — Systems Engineer focused on infrastructure, DevOps, cloud security, IAM/PAM, and AI systems."
+    >
+
+    <style>
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .section-subtitle {
+            color: #9ca3af;
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .nav-container {
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 100px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-label {
+            color: #60a5fa;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            color: #ffffff;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: #9ca3af;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #374151;
+            color: #e5e7eb;
+        }
+
+        .btn-secondary:hover {
+            border-color: #60a5fa;
+            color: #60a5fa;
+        }
+
+        /* Terminal */
+
+        .terminal {
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal-header {
+            background: #1f2937;
+            padding: 12px 15px;
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #6b7280;
+        }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .terminal-line {
+            margin-bottom: 10px;
+        }
+
+        .terminal-green {
+            color: #4ade80;
+        }
+
+        .terminal-blue {
+            color: #60a5fa;
+        }
+
+        .terminal-gray {
+            color: #9ca3af;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text p {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .stat-card h3 {
+            color: #60a5fa;
+            font-size: 1.8rem;
+        }
+
+        .stat-card p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .timeline {
+            border-left: 2px solid #2563eb;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 45px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -39px;
+            top: 5px;
+
+            width: 14px;
+            height: 14px;
+
+            background: #2563eb;
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: #60a5fa;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: #9ca3af;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item ul {
+            color: #9ca3af;
+            padding-left: 20px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .skill-card h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563eb;
+        }
+
+        .project-card h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            color: #60a5fa;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .education-card h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .education-card p {
+            color: #9ca3af;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 50px;
+        }
+
+        .contact-box p {
+            color: #9ca3af;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #1f2937;
+            padding: 30px 0;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                Krutarth<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section id="home">
+
+        <div class="container hero">
+
+            <div>
+
+                <div class="hero-label">
+                    SYSTEMS ENGINEER • CLOUD • SECURITY • AI
+                </div>
+
+                <h1>
+                    Krutarth<br>
+                    <span>Patel</span>
+                </h1>
+
+                <p class="hero-description">
+                    Systems Engineer building reliable infrastructure,
+                    improving security, and exploring the intersection
+                    of cloud engineering, DevSecOps, and AI systems.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+                        View My Work
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Get In Touch
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Terminal -->
+
+            <div class="terminal">
+
+                <div class="terminal-header">
+
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+                    <div class="terminal-dot"></div>
+
+                </div>
+
+                <div class="terminal-body">
+
+                    <div class="terminal-line">
+                        <span class="terminal-green">$</span>
+                        whoami
+                    </div>
+
+                    <div class="terminal-line terminal-gray">
+                        krutarth-patel
+                    </div>
+
+                    <br>
+
+                    <div class="terminal-line">
+                        <span class="terminal-green">$</span>
+                        cat focus.txt
+                    </div>
+
+                    <div class="terminal-line terminal-blue">
+                        Systems Engineering
+                    </div>
+
+                    <div class="terminal-line terminal-blue">
+                        Cloud & DevSecOps
+                    </div>
+
+                    <div class="terminal-line terminal-blue">
+                        IAM / PAM
+                    </div>
+
+                    <div class="terminal-line terminal-blue">
+                        AI Systems
+                    </div>
+
+                    <br>
+
+                    <div class="terminal-line">
+                        <span class="terminal-green">$</span>
+                        status
+                    </div>
+
+                    <div class="terminal-line terminal-green">
+                        Building...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Me
+            </h2>
+
+            <p class="section-subtitle">
+                From infrastructure operations to AI systems engineering.
+            </p>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        I'm a Systems Engineer with experience supporting
+                        enterprise infrastructure across Windows and Linux
+                        environments.
+                    </p>
+
+                    <p>
+                        My work includes server operations, virtualization,
+                        patching, incident response, infrastructure support,
+                        and security-focused access management.
+                    </p>
+
+                    <p>
+                        I'm particularly interested in the intersection of
+                        infrastructure and security — building systems that
+                        are reliable, automated, observable, and secure.
+                    </p>
+
+                    <p>
+                        I'm currently expanding my skills toward
+                        Cloud Security, DevSecOps, Platform Engineering,
+                        and AI Systems Engineering.
+                    </p>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat-card">
+                        <h3>2022+</h3>
+                        <p>Systems Engineering</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>Linux</h3>
+                        <p>Infrastructure & Operations</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>IAM/PAM</h3>
+                        <p>Security & Access Management</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>AI</h3>
+                        <p>Graduate Study Focus</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
+    <section id="experience">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Experience
+            </h2>
+
+            <p class="section-subtitle">
+                Infrastructure, operations, and security engineering.
+            </p>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        June 2022 — Present
+                    </div>
+
+                    <h3>
+                        Systems Engineer
+                    </h3>
+
+                    <div class="timeline-company">
+                        Fidelity Investments
+                    </div>
+
+                    <ul>
+                        <li>
+                            Support enterprise Windows and Linux server
+                            environments and respond to production incidents.
+                        </li>
+
+                        <li>
+                            Perform server patching and infrastructure
+                            maintenance across large-scale environments.
+                        </li>
+
+                        <li>
+                            Support VMware and OLVM virtualization platforms,
+                            including hypervisor host maintenance.
+                        </li>
+
+                        <li>
+                            Provide datacenter hardware support and coordinate
+                            vendor maintenance for break/fix activities.
+                        </li>
+
+                        <li>
+                            Work across infrastructure technologies including
+                            storage, virtualization, backup, and OpenStack.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        Security Engineering
+                    </div>
+
+                    <h3>
+                        Workplace Access Management / IAM-PAM
+                    </h3>
+
+                    <div class="timeline-company">
+                        Fidelity Investments
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            Worked on privileged access and service-account
+                            security initiatives.
+                        </li>
+
+                        <li>
+                            Reviewed privileged entitlements and collaborated
+                            with entitlement owners and infrastructure teams.
+                        </li>
+
+                        <li>
+                            Supported efforts to vault privileged credentials
+                            and improve privileged session management.
+                        </li>
+
+                        <li>
+                            Helped separate interactive and non-interactive
+                            service-account access patterns.
+                        </li>
+
+                        <li>
+                            Collaborated with product owners, AD teams,
+                            and security stakeholders on remediation work.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Technical Skills
+            </h2>
+
+            <p class="section-subtitle">
+                Technologies and areas I'm working with and learning.
+            </p>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <h3>Infrastructure</h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Linux</span>
+                        <span class="tag">Windows Server</span>
+                        <span class="tag">VMware</span>
+                        <span class="tag">OLVM</span>
+                        <span class="tag">OpenStack</span>
+                        <span class="tag">Datacenter</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Security</h3>
+
+                    <div class="tags">
+
+                        <span class="tag">IAM</span>
+                        <span class="tag">PAM</span>
+                        <span class="tag">CyberArk</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">SSH</span>
+                        <span class="tag">Service Accounts</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>DevOps</h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">CI/CD</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Programming</h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Go</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">SQL</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Cloud</h3>
+
+                    <div class="tags">
+
+                        <span class="tag">AWS</span>
+                        <span class="tag">Cloud Security</span>
+                        <span class="tag">Infrastructure as Code</span>
+                        <span class="tag">Automation</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>AI / ML</h3>
+
+                    <div class="tags">
+
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">LLMs</span>
+                        <span class="tag">AI Systems</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Projects
+            </h2>
+
+            <p class="section-subtitle">
+                Selected engineering projects and future portfolio work.
+            </p>
+
+
+            <div class="projects-grid">
+
+
+                <div class="project-card">
+
+                    <h3>
+                        Infrastructure Monitoring Platform
+                    </h3>
+
+                    <p>
+                        A monitoring platform designed to collect server
+                        health information, identify infrastructure issues,
+                        and provide operational visibility.
+                    </p>
+
+                    <div class="project-tech">
+                        Go • Linux • Docker • REST API
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>
+                        Secure Service Account Platform
+                    </h3>
+
+                    <p>
+                        A conceptual IAM/PAM platform focused on separating
+                        interactive and non-interactive service accounts,
+                        credential management, and secure access workflows.
+                    </p>
+
+                    <div class="project-tech">
+                        IAM • PAM • CyberArk • Active Directory
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>
+                        DevSecOps CI/CD Pipeline
+                    </h3>
+
+                    <p>
+                        A CI/CD pipeline demonstrating automated builds,
+                        testing, containerization, security checks,
+                        and deployment.
+                    </p>
+
+                    <div class="project-tech">
+                        GitHub • Jenkins • Docker • Terraform
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>
+                        AI Infrastructure Project
+                    </h3>
+
+                    <p>
+                        Exploring how AI and machine learning workloads can
+                        be deployed, monitored, secured, and operated as
+                        production systems.
+                    </p>
+
+                    <div class="project-tech">
+                        Python • ML • Cloud • AI Systems
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================= -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Education
+            </h2>
+
+            <p class="section-subtitle">
+                Computer science education with an AI-focused graduate path.
+            </p>
+
+
+            <div class="education-card">
+
+                <h3>
+                    Master of Science in Computer Science
+                </h3>
+
+                <p>
+                    Georgia Institute of Technology
+                </p>
+
+                <p>
+                    AI-focused graduate studies
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>
+                    Bachelor of Science in Computer Science
+                </h3>
+
+                <p>
+                    University of Massachusetts Lowell
+                </p>
+
+                <p>
+                    Class of 2022
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+        <div class="container contact">
+
+            <div class="contact-box">
+
+                <h2 class="section-title">
+                    Let's Connect
+                </h2>
+
+                <p>
+                    Interested in infrastructure, cloud security,
+                    DevSecOps, or AI systems? Feel free to connect with me.
+                </p>
+
+
+                <div class="contact-links">
+
+                    <!-- Replace these URLs with your real profiles -->
+
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        class="btn btn-primary"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                    >
+                        GitHub
+                    </a>
+
+                    <a
+                        href="mailto:your.email@example.com"
+                        class="btn btn-secondary"
+                    >
+                        Email
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © <span id="year"></span> Krutarth Patel.
+                Built with HTML & CSS.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        // Automatically update copyright year
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
+```
