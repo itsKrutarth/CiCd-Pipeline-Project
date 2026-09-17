@@ -279,7 +279,7 @@ resource "aws_iam_role_policy_attachment" "cicd_project_autoscaling" {
 ######################################################################
 
 resource "aws_ecr_repository" "cicd_project_nginx" {
-  name                 = "cicd-project/nginx"
+  name                 = "cicd-project-nginx"
   image_tag_mutability = "MUTABLE"   # set to IMMUTABLE if you want tag protection
 
   image_scanning_configuration {
